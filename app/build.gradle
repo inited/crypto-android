@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "cz.inited.secpic"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def spongyVersion = '1.52.0.0'
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    compile group: 'com.madgag.spongycastle', name: 'core', version: spongyVersion
+    compile group: 'com.madgag.spongycastle', name: 'prov', version: spongyVersion
+    compile group: 'com.madgag.spongycastle', name: 'pkix', version: spongyVersion
+    compile group: 'com.madgag.spongycastle', name: 'pg', version: spongyVersion
+
+/*
+    compile 'com.madgag.spongycastle:prov:1.54.0.0'
+    compile 'com.madgag.spongycastle:pkix:1.54.0.0'
+    compile 'com.madgag.spongycastle:pg:1.54.0.0'
+    compile 'com.madgag.spongycastle:core:1.54.0.0'
+
+    compile 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
+    compile 'com.madgag.spongycastle:bcpg-jdk15on:1.58.0.0'
+*/
+
+
+
+    /*
+    compile "com.madgag.spongycastle:core:$spongyCastleVersion"
+    compile ("com.madgag.spongycastle:prov:$spongyCastleVersion") {
+        exclude group: 'junit'
+    }
+    compile ("com.madgag.spongycastle:bcpkix-jdk15on:$spongyCastleVersion") {
+        exclude group: 'junit'
+    }
+    compile ("com.madgag.spongycastle:bcpg-jdk15on:$spongyCastleVersion") {
+        exclude group: 'junit'
+    }
+    */
+}
